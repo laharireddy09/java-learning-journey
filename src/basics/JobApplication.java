@@ -1,3 +1,5 @@
+package basics;
+
 public class JobApplication {
 
     public static void main(String[] args){
