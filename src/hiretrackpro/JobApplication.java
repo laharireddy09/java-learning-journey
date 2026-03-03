@@ -28,5 +28,12 @@ public class JobApplication {
         if (isRemote && expectedSalary > 80000) {
             System.out.println("Verdict: Perfect Job!");
         }
+
+        String[] companies = {"Google", "Amazon", "Microsoft", "Meta", "Apple"};
+
+        System.out.println("-----My First Job Application-----");
+        for (int i = 0; i < companies.length; i++){
+            System.out.println("Application " + (i+1) + ": " +companies[i]);
+        }
     }
 }
