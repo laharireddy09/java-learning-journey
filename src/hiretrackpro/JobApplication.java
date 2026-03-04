@@ -1,39 +1,42 @@
 package hiretrackpro;
 
+import java.sql.SQLOutput;
+
 public class JobApplication {
-    public static void main(String[] args) {
 
-        String companyName = "Google";
-        String role = "Software Engineer";
-        double expectedSalary = 120000.0;
-        boolean isRemote = true;
-        int appliedYear = 2025;
-
-        System.out.println("Company: " + companyName);
+    // Method to print job details
+    public static void printjobdetails(String company, String role, double salary) {
+        System.out.println("Company: " + company);
         System.out.println("Role: " + role);
-        System.out.println("Salary: " + expectedSalary);
+        System.out.println("Salary: " + salary);
+    }
 
-        if (expectedSalary >= 100000) {
-            System.out.println("Status: Dream Job!");
+    //Method to get job status
+    public static String getJobStatus(double salary) {
+        if (salary >= 100000) {
+            return "Dream Job!";
         } else {
-            System.out.println("Status: Negotiate salary");
-        }
-
-        if (companyName.equals("Google") || companyName.equals("Amazon")) {
-            System.out.println("Type: FAANG Target!");
-        } else {
-            System.out.println("Type: Good opportunity");
-        }
-
-        if (isRemote && expectedSalary > 80000) {
-            System.out.println("Verdict: Perfect Job!");
-        }
-
-        String[] companies = {"Google", "Amazon", "Microsoft", "Meta", "Apple"};
-
-        System.out.println("-----My First Job Application-----");
-        for (int i = 0; i < companies.length; i++){
-            System.out.println("Application " + (i+1) + ": " +companies[i]);
+            return "negotiate salary";
         }
     }
+
+    //Method to check if FAANG
+    public static boolean isFAANG(String company) {
+        return company.equals("Google") ||
+                company.equals("Netflix") ||
+                company.equals("Amazon") ||
+                company.equals("Apple") ||
+                company.equals("Meta") ;
+
+    }
+
+    public static void main(String[] args) {
+
+        //using methods instead of repeating code
+        printjobdetails("Google", "Software Engineer", 120000.0);
+        System.out.println("Status: " +getJobStatus(120000.0));
+        System.out.println("FAANG: " + isFAANG("Google"));
+    }
+
+
 }
